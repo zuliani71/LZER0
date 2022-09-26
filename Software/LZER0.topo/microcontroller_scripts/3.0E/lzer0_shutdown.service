@@ -1,0 +1,12 @@
+[Unit]
+Description=Turn power off after shutdown
+DefaultDependencies=no
+Before=umount.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/lzer0_shutdown
+
+[Install]
+WantedBy=halt.target poweroff.target
+

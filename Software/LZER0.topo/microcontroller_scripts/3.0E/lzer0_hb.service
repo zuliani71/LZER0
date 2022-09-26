@@ -1,0 +1,17 @@
+[Unit]
+Description=L-Zer0 heartbeat service
+DefaultDependencies=false
+
+[Service]
+Type=oneshot
+
+ExecStart=/usr/bin/lzer0_hb
+StandardOutput=null
+Restart=no
+
+
+[Install]
+#WantedBy=multi-user.target
+WantedBy=sysinit.target
+
+Alias=lzer0_hb.service
