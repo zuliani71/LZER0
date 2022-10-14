@@ -1,0 +1,14 @@
+#!/bin/tcsh
+# Written by David Zuliani (Apr 2017)
+#
+# DEFAULTS
+set ntpServer = ntp1.inrim.it
+#
+# Shutdwon ntpd
+sudo /etc/init.d/ntp stop
+#
+# Force ntpdate to retrieve current date and time
+sudo /usr/sbin/ntpdate $ntpServer
+#
+# restart ntpd
+sudo /etc/init.d/ntp start

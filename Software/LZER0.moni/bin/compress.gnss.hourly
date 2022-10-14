@@ -1,0 +1,109 @@
+#!/bin/tcsh
+# Created by DZ (Nov 2018)
+# modified by DZ (Nov 2018)
+#
+#********************  DEFAULTS ********************
+set JOB		= `basename $0`
+set CURDIR	= `pwd`
+set path = ($path /usr/sbin /sbin /usr/local/bin /usr/bin /bin /home/${user}/bin .) #fundamental to run  scripts inside cron without full path commands
+#
+#********************  TUNING VARIABLES BEGIN ********************
+#set DUMPDIR 		= /${HOME}/raw
+set STORAGE 		= /mnt/hd
+set DUMPDIR		= ${STORAGE}/gnss
+set STORAGE_USE_LIM 	= 80 	#percent
+set BINDIR   		= /home/lzer0/bin
+#
+# DEFAULT PARAMS
+set SITE  = "UNKN"
+set YEAR  = `date +%Y`
+set DOY   = `date +%j`
+set HOUR  = `date +%H`
+set SES   = `echo $HOUR | hr2ses`
+set FORCE = "N"
+set PHOURS = ""
+
+#********************  TUNING VARIABLES END  ********************
+#
+# check command line params. First one is used to set the site name, second one for brand
+while($#)
+        switch($1)
+                case "-s":
+			# Site name
+			shift
+			set SITE = `echo $1 | tr 'a-z' 'A-Z'`
+			breaksw
+		case "-y":
+			# Year
+                        shift
+			set YEAR = $1
+			breaksw
+                case "-d":
+                        # DOY
+                        shift
+                        set DOY = $1
+                        breaksw
+                case "-h":
+                        # Hour and session
+                        shift
+                        set HOUR = $1
+			set SES  = `echo $HOUR | hr2ses`
+                        breaksw
+                case "-l":
+                        # Session and hour
+                        shift
+                        set SES  = `echo $1 | tr 'a-z' 'A-Z'`
+                        set HOUR = `echo $SES | hr2ses`
+                        breaksw
+                case "-p":
+                        #  Number of previous hours to compress
+                        shift
+			set PHOURS = $1
+                        breaksw
+                case "-f":
+                        #  overwrite old file
+                        set FORCE  = "Y"
+                        breaksw
+		default:
+			shift
+			breaksw
+        endsw
+        shift
+end
+set site = `echo $SITE | tr 'A-Z' 'a-z'`
+if ($PHOURS == "") then
+	set ses  = `echo $SES | tr 'A-Z' 'a-z'`
+	if (-e ${DUMPDIR}/${YEAR}/${DOY}/${ses} ) then
+		if ( ! -e ${DUMPDIR}/${YEAR}/${DOY}/${site}.${YEAR}.${DOY}.${ses}.tar.gz) then
+			echo "${DUMPDIR}/${YEAR}/${DOY}/${site}.${YEAR}.${DOY}.${ses}.tar.gz building."
+			tar -cvzf ${DUMPDIR}/${YEAR}/${DOY}/${site}.${YEAR}.${DOY}.${ses}.tar.gz -C ${DUMPDIR}/${YEAR}/${DOY}/$ses . >& /dev/null
+		else
+			if ($FORCE == "Y") then
+				echo "${DUMPDIR}/${YEAR}/${DOY}/${site}.${YEAR}.${DOY}.${ses}.tar.gz building."
+				tar -cvzf ${DUMPDIR}/${YEAR}/${DOY}/${site}.${YEAR}.${DOY}.${ses}.tar.gz -C ${DUMPDIR}/${YEAR}/${DOY}/$ses . >& /dev/null
+			else
+				echo "${DUMPDIR}/${YEAR}/${DOY}/${site}.${YEAR}.${DOY}.${ses}.tar.gz already exists."
+			endif
+		endif
+	else
+		echo "${DUMPDIR}/${YEAR}/${DOY}/${ses} empty directory or not present on disk"
+	endif
+else
+	@ PHOURS = $PHOURS - 1
+	foreach PHOUR (`seq $PHOURS -1 0`)
+		set CurrHOUR  = `date --date="$PHOUR hour ago" +%H`
+		if ($CurrHOUR == 00) then
+			@ modPHOUR = $PHOUR + 1
+			set CurrYEAR  = `date --date="$modPHOUR hour ago" +%Y`
+                        set CurrDOY   = `date --date="$modPHOUR hour ago" +%j`
+		else
+			set CurrYEAR  = `date --date="$PHOUR hour ago" +%Y`
+			set CurrDOY   = `date --date="$PHOUR hour ago" +%j`
+		endif
+		if ($FORCE == "Y") then
+			compress.gnss.hourly -s $SITE -y $CurrYEAR -d $CurrDOY -h $CurrHOUR -f
+		else
+			compress.gnss.hourly -s $SITE -y $CurrYEAR -d $CurrDOY -h $CurrHOUR
+		endif
+	end
+endif

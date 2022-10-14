@@ -1,0 +1,11 @@
+#! /usr/bin/gawk -f
+function ses2hr(String)
+{
+ {for (c=1; c<=length(String); c++) 
+      {for (i = 33; i<=126; i++) 
+	    {a = sprintf ("%c",i); if (a==substr($String,c,1)) print i-64
+		}
+	  }
+ }
+}
+{ses2hr($0)}

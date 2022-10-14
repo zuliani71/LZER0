@@ -1,0 +1,17 @@
+#!/bin/tcsh -f
+# create by DZ (Apr 2019)
+set JOB = `basename $0`
+set RUNNINGSCRIPT =  lzer0ResetRtklib.py
+set KEYWORD1 = vrasp
+set KEYWORD2 = ublox
+set RUNNINGSCRIPT_STATUS = `ps -ef | grep $RUNNINGSCRIPT | grep -v $JOB | grep -v grep | wc -l`
+#
+# CHECK.
+if ( $RUNNINGSCRIPT_STATUS) then
+	echo $RUNNINGSCRIPT is running
+else
+	echo $RUNNINGSCRIPT is stopped... Restarting now!
+	nohup /home/lzer0/bin/lzer0ResetRtklib.py >& /home/lzer0/bin/lzer0ResetRtklib.py.fromLoopCheck.log &
+	#nohup /home/lzer0/bin/lzer0ResetRtklib.py >& /home/lzer0/bin/lzer0ResetRtklib.py.log &
+	#/home/lzer0/bin/rtkrcv.ublox.ogs.vrasp.manual
+endif

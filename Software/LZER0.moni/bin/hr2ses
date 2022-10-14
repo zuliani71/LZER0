@@ -1,0 +1,11 @@
+#! /usr/bin/gawk -f
+function hr2ses(Num)
+{
+ {for (i=1; i<=NF; i++)
+     if ($i == 0)
+	    {printf "%c\n",88+$i}
+	 else	
+        {printf "%c\n",64+$i}
+ }
+}	
+{hr2ses($0)}

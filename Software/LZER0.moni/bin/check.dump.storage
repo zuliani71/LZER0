@@ -1,0 +1,57 @@
+#!/bin/tcsh
+# Created by DZ (Nov 2018)
+# modified by DZ (Nov 2018)
+#
+#********************  DEFAULTS ********************
+set JOB		= `basename $0`
+set CURDIR	= `pwd`
+#
+#********************  TUNING VARIABLES BEGIN ********************
+#set DUMPDIR 		= /${HOME}/raw
+set STORAGE 		= /mnt/hd
+set DUMPDIR		= ${STORAGE}/gnss
+set STORAGE_USE_LIM 	= 80 	#percent
+set BINDIR   		= /home/lzer0/bin
+set FILEBRAND		= U		#REMOTE GNNS RECEIVER BRAND: T=Topcon, U=UBLOX
+#********************  TUNING VARIABLES END  ********************
+#
+# check command line params. First one is used to set the site name, second one for brand
+if ( ${%1} == 0 ) then
+        set SITE  = "UNKN"
+else
+        set SITE = "$1"
+endif
+if ( ${%2} == 0 ) then
+        set FILEBRAND  = "0"
+else
+        set FILEBRAND = "$2"
+endif
+set site        = `echo $SITE | tr 'A-Z' 'a-z'`#
+#
+# MAKE A SIZE CHECK AND IF NEEDED DO CLEANING
+set storageUseCurrent = `df $STORAGE | tail -n 1 | gawk '{print substr($5,1,length($5)-1)}'`
+if ($storageUseCurrent >= $STORAGE_USE_LIM) then
+	cd $DUMPDIR
+	set yearList = `ls -l | grep "^d" | gawk '{print $NF}' | gawk '{if ($0 ~/[^0-9+]/); else print $0}' | gawk '($0 >= 2002) && (length($NF)==4)'`
+	echo $yearList
+	foreach year ($yearList)
+		set dirContent 		= `ls $year`
+		set dirContentNum 	= `ls $year | wc -l`
+		if ($dirContentNum > 0) then
+			foreach content ($dirContent)
+				set storageUseCurrent = `df  $STORAGE | tail -n 1 | gawk '{print substr($5,1,length($5)-1)}'`
+				if ($storageUseCurrent >= $STORAGE_USE_LIM) then
+					rm -fR $year/$content >& /dev/null
+				else
+				endif
+			end
+		else
+			rm -fR "$year"
+		endif
+	end
+endif
+#
+# Create dirs needed for dumps
+set nextYear = `date --date="1 hour" +%Y`
+set nextDOY  = `date --date="1 hour" +%j`
+mkdir -p ${DUMPDIR}/${nextYear}/${nextDOY}

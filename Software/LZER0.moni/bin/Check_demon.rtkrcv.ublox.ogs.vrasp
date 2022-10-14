@@ -1,0 +1,15 @@
+#!/bin/tcsh -f
+# create by DZ (Mar 2017)
+set JOB = `basename $0`
+set RUNNINGSCRIPT = rtkrcv
+set KEYWORD1 = vrasp
+set KEYWORD2 = ublox
+set RUNNINGSCRIPT_STATUS = `ps -ef | grep $RUNNINGSCRIPT | grep -v $JOB | grep -v grep | wc -l`
+#
+# CHECK.
+if ( $RUNNINGSCRIPT_STATUS) then
+	echo $RUNNINGSCRIPT is running
+else 
+	echo $RUNNINGSCRIPT is stopped... Restarting now!
+	/home/lzer0/bin/rtkrcv.ublox.ogs.vrasp.manual
+endif

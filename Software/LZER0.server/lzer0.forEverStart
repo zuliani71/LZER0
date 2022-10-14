@@ -1,0 +1,15 @@
+#!/usr/bin/tcsh
+set idList = `ps -ef | grep forever | grep -v grep | gawk '{print $2}'` 
+echo "Closing forever js istances with id:"
+foreach id (${idList})
+	echo "- $id"
+	kill $id >& /dev/null
+end
+echo ""
+#set siteList = (CZS0 FE01 UDI1.PPP ZOUF.PPP UDI1.PPP UDI3.RTK)
+set siteList = (UDI1.PPP UDI3.RTK)
+echo "Starting js services fors sites:"
+foreach site (${siteList})
+	echo "- ${site}"
+	forever start --spinSleepTime 10000 --minUptime 1000 /mnt/EXTDISK/frednet.homedirs/Projects/OTHER/WWW/realTimeStreams/index.${site}.js
+end

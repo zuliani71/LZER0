@@ -1,0 +1,22 @@
+#!/bin/tcsh -f
+# created by DZ (Feb 2017)
+# manual start to avoid the segmentation faul issue of rtklib 2.4.3 b26
+#
+#********************  DEFAULTS ********************
+set JOB		= `basename $0`
+set CURDIR	= `pwd`
+
+#******************** START RTKLIB WITH THE GIVEN CONFIG FILE
+#set CFG_FILE = /home/lzer0/Projects/GPS/RTKLIB/EXPTS/CONFS/LONE-RTKLIB_UBLOX_VRASPRTCM3.conf
+#set CFG_FILE = /home/lzer0/Projects/GPS/RTKLIB/EXPTS/CONFS/LONE-RTKLIB_UBLOX_VRASPRTCM3.conf.ori
+#set CFG_FILE = /home/lzer0/Projects/GPS/RTKLIB/EXPTS/CONFS/LONE-RTKLIB_UBLOX_FULL.conf
+#set CFG_FILE = /home/lzer0/Projects/GPS/RTKLIB/EXPTS/CONFS/LONE-RTKLIB_UBLOX_SBAS.conf
+#set CFG_FILE = /home/lzer0/Projects/GPS/RTKLIB/EXPTS/CONFS/LONE-RTKLIB_UBLOX_LEICA_VRS3-RDN.conf
+set CFG_FILE = /home/lzer0/Projects/GPS/RTKLIB/EXPTS/CONFS/rtkrcv.curr.conf
+#nohup /usr/local/bin/rtkrcv -p 2950 -o $CFG_FILE -s &
+nohup /usr/local/bin/rtkrcv -p 2950 -o $CFG_FILE &
+sleep 3
+## manual start
+(echo admin; sleep 1; \
+       echo "start\r\n"; sleep 1; \
+       echo "exit\r\n"; sleep 1) | telnet localhost 2950

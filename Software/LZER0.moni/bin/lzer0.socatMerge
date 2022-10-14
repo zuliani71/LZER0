@@ -1,0 +1,66 @@
+#!/bin/tcsh
+#
+# Written by D. Zuliani 2018/04/15
+#
+# Defaults
+set jobName 	= `basename $0`
+set jobDir      = `dirname $0`
+set jobLog 	= ${jobDir}/${jobName}.log
+set jobPid      = $$
+set path        = (${home}/bin $path)
+#
+# server config
+#set servSrvIp 	= 87.22.103.105 # it can be local using 127.0.0.1
+set servSrvIp 	= 127.0.0.1 # it can be local using 127.0.0.1
+set nmeaPrt 	= 5755		# NMEA output server port
+set posPrt	= 5754		# POS outpit port
+set mergSrvIp 	= 127.0.0.1	# merging server IP
+set mergSrvIPrt = 8888		# merging server input port
+set mergSrvOPrt = 9999		# merging server output port
+set blockSize 	= 1024		# dim of blcok for socat
+set blockSize2	= `echo "2 * $blockSize" | bc`
+#
+# cleaning:
+set pidMergI	= `ps -ef | grep socat | grep tcp-listen:${mergSrvIPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}'`
+set pidMergO	= `ps -ef | grep socat | grep tcp-listen:${mergSrvOPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}'`
+set pidMergB 	= `ps -ef | grep socat | grep TCP:${mergSrvIp}:${mergSrvIPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}'`
+set pidPos	= `ps -ef | grep socat | grep ${posPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}'`   
+set pidNmea     = `ps -ef | grep socat | grep ${nmeaPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}'`
+set pidToKill 	= ($pidMergI $pidMergO $pidMergB $pidPos $pidNmea)
+kill -9 $pidToKill >& /dev/null
+rm -fR ${jobLog} >& /dev/null
+#
+# loop
+while (1)
+	if (-e ${jobLog}) then
+		set isBroken1 = `cat ${jobLog} | grep "Broken pipe" | wc -l`
+		set isBroken2 = `cat ${jobLog} | grep "Connection timed out" | wc -l`
+		set isBroken = `echo "$isBroken1 + $isBroken2" | bc`
+	else
+		set isBroken = 1
+	endif
+	set pidPosN      = `ps -ef | grep socat | grep ${posPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}' | wc -l`
+	set pidNmeaN     = `ps -ef | grep socat | grep ${nmeaPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}' | wc -l`
+	if ( $pidPosN == 0 || $pidNmeaN == 0 ) then
+		set isBroken = 1
+	endif
+	if (${isBroken} > 0) then
+		set pidMergI    = `ps -ef | grep socat | grep tcp-listen:${mergSrvIPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}'`
+		set pidMergO    = `ps -ef | grep socat | grep tcp-listen:${mergSrvOPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}'`
+		set pidMergB    = `ps -ef | grep socat | grep TCP:${mergSrvIp}:${mergSrvIPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}'`
+		set pidPos      = `ps -ef | grep socat | grep ${posPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}'`
+		set pidNmea     = `ps -ef | grep socat | grep ${nmeaPrt} | grep -v grep | grep -v ${jobName} | gawk '{print $2}'`
+		set pidToKill   = ($pidMergI $pidMergO $pidMergB $pidPos $pidNmea)
+		kill -9 $pidToKill >& /dev/null
+		rm -fR ${jobLog} >& /dev/null
+		#(socat -u tcp-listen:8888,reuseaddr,ignoreeof,fork - | socat -u - tcp-listen:9999,reuseaddr,ignoreeof,fork  >& socat.log &) &
+                (socat -u -b 1024 tcp-listen:"${mergSrvIPrt}",reuseaddr,ignoreeof,fork - | socat -u -b 1024 - tcp-listen:"${mergSrvOPrt}",reuseaddr,ignoreeof,fork  >& ${jobLog}) &
+		sleep 1
+                #socat TCP:87.22.103.105:5755 STDOUT | socat - TCP:127.0.0.1:8888 &
+                socat -b 512 TCP:${servSrvIp}:${nmeaPrt} STDOUT | socat - TCP:${mergSrvIp}:${mergSrvIPrt} &
+                sleep 1
+                #socat TCP4:87.22.103.105:5754 STDOUT | gawk '{out=""; for(i=1;i<=NF;i++){if (i > 1) {out=out","$i} else out="$LZER0,POS,"$i}; print out;fflush()}' | socat - TCP:127.0.0.1:8888 &
+                socat -b 256 TCP4:${servSrvIp}:${posPrt} STDOUT | gawk '{out=""; for(i=1;i<=NF;i++){if (i > 1) {out=out","$i} else out="$LZER0,POS,"$i}; print out;fflush()}' | socat - TCP:${mergSrvIp}:${mergSrvIPrt} &
+	else
+	endif
+end

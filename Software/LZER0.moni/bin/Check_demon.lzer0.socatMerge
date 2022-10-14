@@ -1,0 +1,15 @@
+#!/bin/tcsh -f
+# create by DZ (Apr 2018)
+set JOB = `basename $0`
+set RUNNINGSCRIPT = lzer0.socatMerge
+set KEYWORD1 = ""
+set KEYWORD2 = ""
+set RUNNINGSCRIPT_STATUS = `ps -ef | grep $RUNNINGSCRIPT | grep -v $JOB | grep -v grep | wc -l`
+#
+# CHECK.
+if ( $RUNNINGSCRIPT_STATUS) then
+	echo $RUNNINGSCRIPT is running
+else 
+	echo $RUNNINGSCRIPT is stopped... Restarting now!
+	nohup /home/lzer0/bin/lzer0.socatMerge &
+endif
