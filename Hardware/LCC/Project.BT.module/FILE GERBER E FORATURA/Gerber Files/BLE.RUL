@@ -1,0 +1,5 @@
+DRC Rules Export File for PCB: C:\Users\giorg\Dropbox\Gibimaster-giacomin\2021\BLUETOOTH\BLE.PcbDoc
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=7.87
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=7.09
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0

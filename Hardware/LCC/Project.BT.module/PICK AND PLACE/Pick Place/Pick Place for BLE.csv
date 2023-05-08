@@ -1,0 +1,24 @@
+Altium Designer Pick and Place Locations
+C:\Users\giorg\Dropbox\Gibimaster-giacomin\2021\BLUETOOTH\Project Outputs for 2721032100\PICK AND PLACE\Pick Place\Pick Place for BLE.csv
+
+========================================================================================================================
+File Design Information:
+
+Date:       09/03/23
+Time:       17:56
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mm
+
+"Designator","Comment","Layer","Footprint","Center-X(mm)","Center-Y(mm)","Rotation","Description"
+"C2","10uF","TopLayer","RC0603_1","-8.2500","-9.7500","180","CAP, MLCC, X5R, 10UF, 10V, X5R, 0603"
+"U1","HC06","TopLayer","MODULO_HC06","0.0000","0.0000","0","Modulo Bluetooth/802.15.1 Class2"
+"D1","B","TopLayer","LED_SMD_0603_BLUE","9.2500","-10.7500","0","LED, 0603, BLUE, 180MCD, 470NM"
+"R5","560R","TopLayer","RC0603_1","9.2500","-8.7500","0","RESISTORE, 560R, 0.1W, 1%, 0603, SMD"
+"R4","10K","TopLayer","RC0603_1","9.2500","-6.7500","0","RESISTORE, 10K, 0.1W, 1%, 0603, SMD"
+"R3","0R","TopLayer","RC0402_1","8.2500","-1.0000","90","RESISTORE, 0R, 0.1W, 1%, 0402, SMD"
+"R2","0R","TopLayer","RC0402_1","-9.2500","7.0000","0","RESISTORE, 0R, 0.1W, 1%, 0402, SMD"
+"R1","0R","TopLayer","RC0402_1","-9.2500","8.7500","0","RESISTORE, 0R, 0.1W, 1%, 0402, SMD"
+"J2","61300511121","BottomLayer","CON_TH_5PIN_2.54P_61300511121_WE","9.7000","0.2700","270","Header, 5-Pin"
+"J1","61300511121","BottomLayer","CON_TH_5PIN_2.54P_61300511121_WE","-9.7000","-2.2700","270","Header, 5-Pin"
+"C1","100nF","TopLayer","RC0402_1","-8.2500","-7.2500","270","CAP, CERAMICA, 100NF, 16V, X7R, 0402"

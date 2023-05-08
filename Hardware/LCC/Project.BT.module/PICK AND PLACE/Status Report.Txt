@@ -1,0 +1,15 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 17:56:36 On 09/03/2023
+
+Output: Generates pick and place files
+Type  : Pick Place
+From  : Variant [[No Variations]] of PCB Document [BLE.PcbDoc]
+   Generated File[Pick Place for BLE.txt]
+   Generated File[Pick Place for BLE.csv]
+
+
+Files Generated   : 2
+Documents Printed : 0
+
+Finished Output Generation At 17:56:37 On 09/03/2023

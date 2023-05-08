@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : PCB Document [BLE.PcbDoc]
+   Generated File[BLE-Plated.TXT]
+   Generated File[BLE.LDP]
+   Generated File[BLE.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 17:55:57 On 09/03/2023

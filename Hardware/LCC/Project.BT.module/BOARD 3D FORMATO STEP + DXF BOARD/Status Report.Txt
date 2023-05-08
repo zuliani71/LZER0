@@ -1,0 +1,10 @@
+Output: PCB Formato DXF
+Type  : AutoCAD PCB
+From  : PCB Document [BLE.PcbDoc]
+   Generated File[BLE.DXF]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 17:56:29 On 09/03/2023
