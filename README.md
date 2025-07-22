@@ -4,8 +4,12 @@ LZER0: a cost-effective multi-purpose GNSS platform (Hardware and Software).<br>
 <br>
 
 ## Software
-software to manage the different parts of the LZER0 system are available at the following links
-- https://github.com/frednet-ogs/homebin_lzer0
+software to manage the different parts of the LZER0 system are available at differente repositories
+### HOME/BIN LZER0
+Contains scripts, tools, and utility software necessary for the daily operation of the lzer0 receiver.
+It includes tools for starting services, managing GNSS files, communicating with peripherals, and other
+system operations. It is the central component that defines the behavior of the device once it is powered on.
+ https://github.com/frednet-ogs/homebin_lzer0
 
 ## Articles and informations available at:
 - https://doi.org/10.3390/s22218314<br>
