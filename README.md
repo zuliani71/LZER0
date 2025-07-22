@@ -13,13 +13,13 @@ Contains scripts, tools, and utility software necessary for the daily operation 
 It includes tools for starting services, managing GNSS files, communicating with peripherals, and other
 system operations. It is the central component that defines the behavior of the device once it is powered on.
 
-https://github.com/frednet-ogs/homebin_lzer0
+https://github.com/OGS-GNSS/homebin_lzer0
 
 #### HOME/CFG LZER0
 Contains examples of the configuration file related to the operation of the LZER0 receiver. Some files are used directly,
 others are dynamically regenerated at provisioning or boot time.
 
-https://github.com/frednet-ogs/homecfg_lzer0 (it will be public soon)
+https://github.com/OGS-GNSS/homecfg_lzer0 
 
 ### WEB based configuration system
 
@@ -42,7 +42,7 @@ https://hub.geosciences.cloud/git/geosciencesir-devop/ogs_dev/lzer0_provisioning
 Contains the customizable assets needed to adapt the provisioning system to your operating environment. This
 repository is automatically cloned by the provisioning system.
 
-https://github.com/sgalvi/lzer0_generic_assets
+https://github.com/OGS-GNSS/lzer0_generic_assets
 
 ## Articles and informations available at:
 - https://doi.org/10.3390/s22218314<br>
