@@ -32,11 +32,11 @@ The LZER0 Deployment and Provisioning repository is crucial for bringing new Ras
 
   - **Playbooks:** A comprehensive set of Ansible playbooks (main.yaml) is provided for tasks like disabling requiretty, configuring fstab, installing/updating apt packages, managing user groups and SSH keys, setting up NTP, configuring the ufw firewall, establishing persistent VPN connections, syncing root and home directories, installing Python packages with pip, deploying RTKLIB, setting up the GNSS module web interface, configuring PiJuice, and managing crontab entries.
 
-For detailed instructions, please refer to the README.md in the LZER0 Deployment and Provisioning repository.
+For detailed instructions, please refer to the `README.md` in the [LZER0 Deployment and Provisioning](https://hub.geosciences.cloud/git/geosciencesir-devop/ogs_dev/lzer0_provisioning) repository.
 
 ### GNSS-Central-Config
 
-The GNSS-Central-Config system enables centralized management of a pool of LZER0 receivers. This system facilitates defining and distributing device configurations, monitoring their status, updating parameters, and coordinating the behavior of the entire GNSS network. This is particularly useful for fleet management, allowing programmatic updates to keep configuration files and certificates in sync across all deployed boards.
+The [GNSS-Central-Config](https://hub.geosciences-ir.it/git/geosciencesir-devop/ogs_dev/gnss-central-config) system enables centralized management of a pool of LZER0 receivers. This system facilitates defining and distributing device configurations, monitoring their status, updating parameters, and coordinating the behavior of the entire GNSS network. This is particularly useful for fleet management, allowing programmatic updates to keep configuration files and certificates in sync across all deployed boards.
 
 
 
