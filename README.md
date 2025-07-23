@@ -6,7 +6,7 @@ LZER0: a cost-effective multi-purpose GNSS platform (Hardware and Software) deve
 ## 🔍 Overview
 - 📇 Based on u‑blox M8T GNSS receiver + Raspberry Pi Zero W.
 - 🧰 Processes data with RTKLIB (real-time RTK/PPK).
-- 🖥️ Includes Bash scripts, Ansible provisioning, and web interface for fleet management :contentReference[oaicite:1]{index=1}.
+- 🖥️ Includes Bash scripts, Ansible provisioning, and web interface for fleet management
 
 ## 📦 Components
 
