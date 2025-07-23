@@ -8,6 +8,13 @@ LZER0: a cost-effective multi-purpose GNSS platform (Hardware and Software) deve
 - 🧰 Processes data with RTKLIB (real-time RTK/PPK).
 - 🖥️ Includes Bash scripts, Ansible provisioning, and web interface for fleet management
 
+## 🚀 Getting Started
+### Choose Your Path
+- 🔧 **I want to build the hardware** → Continue to the [Hardware Guide](#-hardware-guide) section below
+- 💻 **I want to deploy and configure devices** → Go to the [LZER0 Deployment and Provisioning](https://hub.geosciences.cloud/git/geosciencesir-devop/ogs_dev/lzer0_provisioning) repository
+- 🌐 **I want to set up centralized management** → Check out the [GNSS-Central-Config](https://hub.geosciences-ir.it/git/geosciencesir-devop/ogs_dev/gnss-central-config) system
+- 📚 **I want to understand the complete system** → Continue reading this guide and explore the [research publications](#-articles-and-informations-available-at)
+
 ## 📦 Components
 
 <table>
@@ -50,6 +57,41 @@ LZER0: a cost-effective multi-purpose GNSS platform (Hardware and Software) deve
   </tbody>
 </table>
 
+## 🛠️ Hardware Guide
+
+This repository contains all the hardware designs, schematics, and documentation needed to build LZER0 devices.
+
+### What You'll Find Here
+
+#### Core Hardware Designs
+- **PCB schematics** - Complete electrical designs for LZER0 boards
+- **PCB layouts** - Ready-to-manufacture Gerber files
+- **Bill of Materials (BOM)** - Component lists with part numbers
+- **Assembly instructions** - Step-by-step hardware assembly guides
+- **Mechanical drawings** - Enclosure and mounting specifications
+
+#### Key Components
+- **u-blox M8T GNSS receiver module** - Professional-grade timing receiver
+- **Raspberry Pi Zero W** - ARM-based computing platform with WiFi
+- **Custom interface PCB** - Connects GNSS receiver to Raspberry Pi
+- **Power management** - Efficient power supply and distribution
+- **I/O interfaces** - GPIO, serial, and expansion connectors
+
+### Manufacturing Your LZER0
+
+1. **Download design files** from the `/hardware/` directory
+2. **Source components** using the provided BOM
+3. **Manufacture PCBs** using the Gerber files with your preferred fabricator
+4. **Assemble hardware** following the assembly guide
+5. **Test hardware** before software installation
+
+### Hardware Variants
+
+LZER0 supports multiple hardware configurations:
+- **Basic LZER0** - Core GNSS receiver functionality
+- **LZER0-Plus** - Extended I/O and sensor interfaces
+- **LZER0-Field** - Ruggedized version for outdoor deployments
+- **LZER0-Network** - Enhanced connectivity options
 
 ## 📄 Articles and informations available at:
 - https://doi.org/10.3390/s22218314<br>
