@@ -13,7 +13,7 @@ LZER0: a cost-effective multi-purpose GNSS platform (Hardware and Software) deve
 To fully utilize an LZER0 device, you will need to set up the hardware, deploy and configure the device's operating system and software, and optionally integrate it into a centralized management system.
 
 ### Choose Your Path
-- 🔧 **I want to build the hardware** → Continue to the [Hardware Guide](#-hardware-guide) section below
+- 🔧 **I want to build the hardware** → Continue to the [Hardware Guide](#-Hardware-Guide) section below
 - 💻 **I want to deploy and configure devices** → Go to the [LZER0 Deployment and Provisioning](https://hub.geosciences.cloud/git/geosciencesir-devop/ogs_dev/lzer0_provisioning) repository
 - 🌐 **I want to set up centralized management** → Check out the [GNSS-Central-Config](https://hub.geosciences-ir.it/git/geosciencesir-devop/ogs_dev/gnss-central-config) system
 - 📚 **I want to understand the complete system** → Continue reading this guide and explore the [research publications](#-articles-and-informations-available-at)
