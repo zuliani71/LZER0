@@ -9,11 +9,36 @@ LZER0: a cost-effective multi-purpose GNSS platform (Hardware and Software) deve
 - 🖥️ Includes Bash scripts, Ansible provisioning, and web interface for fleet management
 
 ## 🚀 Getting Started
+
+To fully utilize an LZER0 device, you will need to set up the hardware, deploy and configure the device's operating system and software, and optionally integrate it into a centralized management system.
+
 ### Choose Your Path
 - 🔧 **I want to build the hardware** → Continue to the [Hardware Guide](#-hardware-guide) section below
 - 💻 **I want to deploy and configure devices** → Go to the [LZER0 Deployment and Provisioning](https://hub.geosciences.cloud/git/geosciencesir-devop/ogs_dev/lzer0_provisioning) repository
 - 🌐 **I want to set up centralized management** → Check out the [GNSS-Central-Config](https://hub.geosciences-ir.it/git/geosciencesir-devop/ogs_dev/gnss-central-config) system
 - 📚 **I want to understand the complete system** → Continue reading this guide and explore the [research publications](#-articles-and-informations-available-at)
+
+### LZER0 Deployment and Provisioning
+The LZER0 Deployment and Provisioning repository is crucial for bringing new Raspberry Pi units to an operative state, allowing them to join a pool of already deployed boards. This process involves a combination of ad-hoc OS image building using pi-gen and IT automation with Ansible.
+
+**Key Stages:**
+- **Image Building Stage:** Utilizes pi-gen to create a Raspberry Pi OS Lite image, which is then written to the SD cards of the RPis. This stage includes custom scripts (90-crspi) for installing extra packages, disabling unneeded hardware/services, setting up NetworkManager, and populating a custom.toml file for first-boot scripts.
+
+  - **Customization:** Before the first boot, you can apply board-specific customizations to the SD card, such as setting a custom hostname and providing client-specific VPN configurations.
+
+- **Provisioning Stage:** Uses Ansible playbooks to define and run tasks on all hosts in the inventory.
+
+  - **Inventory Population:** The Ansible inventory can be populated manually or dynamically using Avahi for discovery of IP addresses and hostnames.
+
+  - **Playbooks:** A comprehensive set of Ansible playbooks (main.yaml) is provided for tasks like disabling requiretty, configuring fstab, installing/updating apt packages, managing user groups and SSH keys, setting up NTP, configuring the ufw firewall, establishing persistent VPN connections, syncing root and home directories, installing Python packages with pip, deploying RTKLIB, setting up the GNSS module web interface, configuring PiJuice, and managing crontab entries.
+
+For detailed instructions, please refer to the README.md in the LZER0 Deployment and Provisioning repository.
+
+### GNSS-Central-Config
+
+The GNSS-Central-Config system enables centralized management of a pool of LZER0 receivers. This system facilitates defining and distributing device configurations, monitoring their status, updating parameters, and coordinating the behavior of the entire GNSS network. This is particularly useful for fleet management, allowing programmatic updates to keep configuration files and certificates in sync across all deployed boards.
+
+
 
 ## 📦 Components
 
