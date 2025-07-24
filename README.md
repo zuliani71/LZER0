@@ -37,6 +37,7 @@ For detailed instructions, please refer to the `README.md` in the [LZER0 Deploym
 ### GNSS-Central-Config
 
 The [GNSS-Central-Config](https://hub.geosciences-ir.it/git/geosciencesir-devop/ogs_dev/gnss-central-config) system enables centralized management of a pool of LZER0 receivers. This system facilitates defining and distributing device configurations, monitoring their status, updating parameters, and coordinating the behavior of the entire GNSS network. This is particularly useful for fleet management, allowing programmatic updates to keep configuration files in sync across all deployed boards.
+
 In addition to the central system, each receiver also hosts a local web-based configuration interface. This configurator plays a crucial role, as it allows the setup of key parameters specific to each device — such as site name, caster credentials, approximate coordinates, and more. While the central system ensures coordination and consistency, the local interface ensures that each receiver can be individually tailored to its deployment context.
 
 
