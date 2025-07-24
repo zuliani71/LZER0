@@ -1,7 +1,6 @@
 # LZER0
 ![image](/Images/lzer0.full.png)
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 LZER0: a cost-effective multi-purpose GNSS platform (Hardware and Software) developed by OGS for surveying measurements and for monitoring tasks.
 
 
@@ -160,3 +159,5 @@ It features the LZER0 Core Card (LCC) ver. 2022, based on the same ZED-F9 chip
 ## 📄 License
 
 This project is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
+
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
