@@ -121,7 +121,7 @@ The original LZER0 hardware was developed using the u-blox M8T receiver. However
 LZER0 supports multiple hardware configurations:
 
 #### LZER0-MONI 
-Intended for permanent monitoring applications such as landslide or infrastructure observation. The unit is typically installed inside a solar-powered pillar with a panel, charge controller, and backup battery. It features the M8T receiver and 
+Intended for permanent monitoring applications such as landslide or infrastructure observation. The unit is typically installed inside a solar-powered pillar with a panel, charge controller, and backup battery. It features the u-blox M8T receiver and 
 
 Raspberry Pi connected via USB, and includes a built-in web server with real-time data visualization (e.g., NS/EW/UP displacements and interactive map).
 
@@ -131,13 +131,13 @@ A compact version designed for topographic and cadastral surveying. It uses a u-
 #### LZER0-AUTO
 Developed for automotive and dynamic positioning applications, such as agricultural machinery. The electronics (u-blox M8T, Raspberry Pi Zero W, and ATXraspi interface board) are enclosed in a rugged industrial-grade Gewiss GW44427 box. Powered by the vehicle's battery (24V to 5V converter), it connects to a tablet in the cabin, which provides NTRIP corrections and real-time guidance
 
-#### LZER0-MOB
+#### LZER0-MOB (documentation will be uploaded)
 LZER0-MOB is a standalone GNSS device designed for temporary measurement campaigns and mobile deployments. It integrates a GNSS receiver (u-blox ZED-F9P), a Raspberry Pi, and an internal modem for remote connectivity.
 It can be powered by external batteries or solar panels, making it fully autonomous and ideal for rapid field deployment.
 
 Developed within the Geosciences IR project, it uses the LZER0 Core Card (LCC) ver. 2021, based on the u-blox ZED-F9 chipset.
 
-#### LZER0-NET
+#### LZER0-NET (documentation will be uploaded)
 LZER0-NET is built for reliable, continuous GNSS monitoring, especially in remote or critical installations. It includes a mini-UPS based on the PiJuice board, enabling power backup, safe shutdowns, and automatic recovery.
 
 It combines the u-blox ZED-F9 GNSS receiver with a Raspberry Pi and supports real-time data streaming and web-based monitoring.
