@@ -2,6 +2,7 @@
 ![image](/Images/lzer0.full.png)
 
 LZER0: a cost-effective multi-purpose GNSS platform (Hardware and Software) developed by OGS for surveying measurements and for monitoring tasks.
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## 🔍 Overview
 - 📇 Based on u‑blox M8T GNSS receiver + Raspberry Pi Zero W.
@@ -153,3 +154,8 @@ It features the LZER0 Core Card (LCC) ver. 2022, based on the same ZED-F9 chip
 - http://dx.doi.org/10.13140/RG.2.2.32319.61605<br>
 - https://doi.org/10.3390/s22010350<br>
 - https://hdl.handle.net/20.500.14083/43383<br>
+
+
+## 📄 License
+
+This project is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
