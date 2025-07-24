@@ -124,3 +124,4 @@ LZER0 supports multiple hardware configurations:
 - http://dx.doi.org/10.13140/RG.2.2.22750.05447<br>
 - http://dx.doi.org/10.13140/RG.2.2.32319.61605<br>
 - https://doi.org/10.3390/s22010350<br>
+- https://hdl.handle.net/20.500.14083/43383<br>
