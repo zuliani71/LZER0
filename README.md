@@ -103,6 +103,9 @@ This repository contains all the hardware designs, schematics, and documentation
 - **Power management** - Efficient power supply and distribution
 - **I/O interfaces** - GPIO, serial, and expansion connectors
 
+#### Important Note
+The original LZER0 hardware was developed using the u-blox M8T receiver. However, this repository also includes designs for the LCC variant, based on the u-blox ZED-F9P, which supports multi-band GNSS and offers enhanced precision and performance.
+
 ### Manufacturing Your LZER0
 
 1. **Download design files** from the `/hardware/` directory
@@ -113,11 +116,18 @@ This repository contains all the hardware designs, schematics, and documentation
 
 ### Hardware Variants
 
+
 LZER0 supports multiple hardware configurations:
-- **Basic LZER0** - Core GNSS receiver functionality
-- **LZER0-Plus** - Extended I/O and sensor interfaces
-- **LZER0-Field** - Ruggedized version for outdoor deployments
-- **LZER0-Network** - Enhanced connectivity options
+
+**LZER0.moni** – Base version, compact and focused on core GNSS functionality
+
+**LZER0.topo** – [To be filled]
+
+**LZER0.auto** – Designed for automotive applications and dynamic positioning
+
+**LZER0-MOB** – Developed within the Geosciences IR project; includes an internal SIM card for connectivity
+
+**LZER0-NET** – Features a mini UPS based on the PiJuice board for enhanced power resilience
 
 ## 📄 Articles and informations available at:
 - https://doi.org/10.3390/s22218314<br>
