@@ -119,13 +119,13 @@ The original LZER0 hardware was developed using the u-blox M8T receiver. However
 
 LZER0 supports multiple hardware configurations:
 
-#### LZER0.moni 
+#### LZER0-MONI 
 Intended for permanent monitoring applications such as landslide or infrastructure observation. The unit is typically installed inside a solar-powered pillar with a panel, charge controller, and backup battery. It features the M8T receiver and Raspberry Pi connected via USB, and includes a built-in web server with real-time data visualization (e.g., NS/EW/UP displacements and interactive map).
 
-#### LZER0.topo
+#### LZER0-TOPO
 A compact version designed for topographic and cadastral surveying. It uses a u-blox M8T GNSS receiver and a rechargeable LiPo battery, all housed in a 3D-printed enclosure with an integrated TW4721 antenna on a metallic support. The device connects wirelessly to an Android tablet, enabling real-time tracking of survey points and trajectories in the field.
 
-#### LZER0.auto
+#### LZER0-AUTO
 Developed for automotive and dynamic positioning applications, such as agricultural machinery. The electronics (u-blox M8T, Raspberry Pi Zero W, and ATXraspi interface board) are enclosed in a rugged industrial-grade Gewiss GW44427 box. Powered by the vehicle's battery (24V to 5V converter), it connects to a tablet in the cabin, which provides NTRIP corrections and real-time guidance
 
 #### LZER0-MOB
