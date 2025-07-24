@@ -119,15 +119,24 @@ The original LZER0 hardware was developed using the u-blox M8T receiver. However
 
 LZER0 supports multiple hardware configurations:
 
-**LZER0.moni** – Base version, compact and focused on core GNSS functionality
+#### LZER0.moni 
+Intended for permanent monitoring applications such as landslide or infrastructure observation. The unit is typically installed inside a solar-powered pillar with a panel, charge controller, and backup battery. It features the M8T receiver and Raspberry Pi connected via USB, and includes a built-in web server with real-time data visualization (e.g., NS/EW/UP displacements and interactive map).
 
-**LZER0.topo** – [To be filled]
+#### LZER0.topo
+A compact version designed for topographic and cadastral surveying. It uses a u-blox M8T GNSS receiver and a rechargeable LiPo battery, all housed in a 3D-printed enclosure with an integrated TW4721 antenna on a metallic support. The device connects wirelessly to an Android tablet, enabling real-time tracking of survey points and trajectories in the field.
 
-**LZER0.auto** – Designed for automotive applications and dynamic positioning
+#### LZER0.auto
+Developed for automotive and dynamic positioning applications, such as agricultural machinery. The electronics (u-blox M8T, Raspberry Pi Zero W, and ATXraspi interface board) are enclosed in a rugged industrial-grade Gewiss GW44427 box. Powered by the vehicle's battery (24V to 5V converter), it connects to a tablet in the cabin, which provides NTRIP corrections and real-time guidance
 
-**LZER0-MOB** – Developed within the Geosciences IR project; includes an internal SIM card for connectivity
+#### LZER0-MOB
+LZER0-MOB is a standalone GNSS device designed for temporary measurement campaigns and mobile deployments. It integrates a GNSS receiver (typically u-blox ZED-F9P), a Raspberry Pi, and a SIM-enabled communication module for remote data access.
+Compact and easy to deploy, it is ideal for short-term geodetic or environmental monitoring. It can be powered by external batteries or solar panels, making it fully autonomous and suitable for fieldwork without permanent infrastructure.
 
-**LZER0-NET** – Features a mini UPS based on the PiJuice board for enhanced power resilience
+#### LZER0-NET
+LZER0-NET is designed for continuous operation in critical GNSS monitoring setups. It integrates a mini-UPS based on the PiJuice board, which ensures autonomous power backup during outages, safe shutdown, and reliable reboot.
+Ideal for permanent installations, it combines a u-blox GNSS receiver with a Raspberry Pi, offering real-time data acquisition, onboard visualization, and remote access — making it a robust solution for long-term geodetic and environmental monitoring.
+
+
 
 ## 📄 Articles and informations available at:
 - https://doi.org/10.3390/s22218314<br>
