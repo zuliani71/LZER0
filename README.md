@@ -18,6 +18,7 @@ To fully utilize an LZER0 device, you will need to set up the hardware, deploy a
 - 💻 **I want to deploy and configure devices** → Go to the [LZER0 Deployment and Provisioning](https://hub.geosciences.cloud/git/geosciencesir-devop/ogs_dev/lzer0_provisioning) repository
 - 🌐 **I want to set up the web-based centralized management and configuration system** → Check out the [GNSS-Central-Config](https://hub.geosciences-ir.it/git/geosciencesir-devop/ogs_dev/gnss-central-config) system
 - 📚 **I want to understand the complete system** → Continue reading this guide and explore the [research publications](#-articles-and-informations-available-at)
+  
 Additionally, you can use the [lzeroutils](https://github.com/shakelab/lzeroutils) command-line toolkit for enhanced interaction with LZER0 devices — particularly useful for debugging, automation, and extracting GNSS data.
 
 ### LZER0 Deployment and Provisioning
