@@ -18,6 +18,7 @@ To fully utilize an LZER0 device, you will need to set up the hardware, deploy a
 - 💻 **I want to deploy and configure devices** → Go to the [LZER0 Deployment and Provisioning](https://hub.geosciences.cloud/git/geosciencesir-devop/ogs_dev/lzer0_provisioning) repository
 - 🌐 **I want to set up the web-based centralized management and configuration system** → Check out the [GNSS-Central-Config](https://hub.geosciences-ir.it/git/geosciencesir-devop/ogs_dev/gnss-central-config) system
 - 📚 **I want to understand the complete system** → Continue reading this guide and explore the [research publications](#-articles-and-informations-available-at)
+Additionally, you can use the [lzeroutils](https://github.com/shakelab/lzeroutils) command-line toolkit for enhanced interaction with LZER0 devices — particularly useful for debugging, automation, and extracting GNSS data.
 
 ### LZER0 Deployment and Provisioning
 The LZER0 Deployment and Provisioning repository is crucial for bringing new Raspberry Pi units to an operative state, allowing them to join a pool of already deployed boards. This process involves a combination of ad-hoc OS image building using pi-gen and IT automation with Ansible.
@@ -80,6 +81,13 @@ In addition to the central system, each receiver also hosts a local web-based co
     <tr>
       <td><a href="https://github.com/OGS-GNSS/lzer0_generic_assets">Assets to be configured</a></td>
       <td>Contains the customizable assets needed to adapt the provisioning system to your operating environment. This repository is automatically cloned by the provisioning system.</td>
+    </tr>
+     <tr>
+      <td colspan="2"><strong>🔧 Client-Server tools </strong></td>
+       <tr>
+        <td><a href="https://github.com/shakelab/lzeroutils">lzeroutils</a></td>
+        <td>Supplementary command-line tools and utilities to interact with LZER0 devices. Useful for debugging, automation, and data extraction. Can be used independently or integrated with the core system.</td>
+      </tr>
     </tr>
   </tbody>
 </table>
