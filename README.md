@@ -153,6 +153,18 @@ It combines the u-blox ZED-F9 GNSS receiver with a Raspberry Pi and supports rea
 It features the LZER0 Core Card (LCC) ver. 2022, based on the same ZED-F9 chipset, with improved hardware integration.
 
 
+## ✨Acknowledgments
+The development of LZER0 has been supported over the years by several projects and funding sources:
+the development of the LZER0-NET and of the LCC was supported by the agreement between the National Institute of Oceanography and Applied Geophysics - OGS and the Civil Protection of the Friuli Venezia Giulia Region;
+the development of the LZER0-MOB variant, of the GNSS-Central-Config system and of the LZER0 Deployment and Provisioning system was funded by European Union - NextGenerationEU - Mission 4 “Education and Research” - Component 2 “From Research to Business” - Investment 3.1 “Fund for the realization of an integrated system of research and innovation infrastructures” - Project IR0000037 - GeoSciences IR - CUP I53C22000800006;
+LZER0 was tested within the RETURN project as a real-time monitoring device at the Cazzaso landslide, at two test sites on a building of the University of Naples, and at two sites along the Rome–Naples railway line. As part of the RETURN project, and in collaboration with Sapienza University of Rome, we are also carrying out a technology transfer initiative aimed at increasing the Technology Readiness Level (TRL) of the LZER0 system.
+
+
+LZER0 software integrates software developed in the following third-party projects:
+[RTKLIB](https://github.com/rtklibexplorer/RTKLIB)
+[Ansible](https://www.ansible.com/)
+[pi-gen](https://github.com/RPi-Distro/pi-gen)
+
 
 
 
